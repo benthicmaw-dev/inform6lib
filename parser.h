@@ -1,14 +1,13 @@
 ! ==============================================================================
 !   PARSER:  Front end to parser.
 !
-!   Supplied for use with Inform 6 -- Release 6.12.2 -- Serial number 180520
+!   Supplied for use with Inform 6 -- Release 6.12.2 -- Serial number 180611
 !
 !   Copyright Graham Nelson 1993-2004 and David Griffith 2012-2018
 !
 !   This code is licensed under either the traditional Inform license as
 !   described by the DM4 or the Artistic License version 2.0.  See the
-!   file COPYING in the distribution archive or at
-!   https://github.com/DavidGriffith/inform6lib/
+!   file COPYING in the distribution archive.
 !
 !   In your game file, Include three library files in this order:
 !       Include "Parser";
@@ -64,7 +63,7 @@ System_file;
 Message fatalerror "*** Library 6.12.2 needs Inform v6.33 or later to work ***";
 #Endif; ! VN_
 
-Constant LibSerial       "180520";
+Constant LibSerial       "180611";
 Constant LibRelease      "6.12.2";
 Constant LIBRARY_VERSION  612;
 Constant Grammar__Version 2;
