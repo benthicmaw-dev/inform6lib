@@ -5,9 +5,9 @@ http://www.inform-fiction.org
 and
 http://www.ifarchive.org/indexes/if-archiveXinfocomXcompilersXinform6.html
 
-The Git repository is at https://github.com/DavidGriffith/inform6lib
+The Git repository is at https://gitlab.com/DavidGriffith/inform6lib
 
-Bug reports may be filed at the above Github page, the Inform Bug
+Bug reports may be filed at the above Gitlab page, the Inform Bug
 Tracker at http://inform7.com/mantis/, or directly with David Griffith
 <dave@661.org>
 
