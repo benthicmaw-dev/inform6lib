@@ -951,16 +951,22 @@ Constant COLON__TX      = ": ";
         4:  ".";
     }
   Jump: CSubjectVerb(actor,false,false,"jump",0,"jumps","jumped"); " on the spot, fruitlessly.";
-  JumpIn:
-        print "Jumping in ", (the) x1, " ";
-        Tense("would achieve", "would have achieved");
-        " nothing here.";
-  JumpOn:
-        print "Jumping upon ", (the) x1, " ";
-        Tense("would achieve", "would have achieved");
-        " nothing here.";
+  JumpIn: switch (n) {
+        1: print "Jumping in ", (the) x1, " ";
+           Tense("would achieve", "would have achieved");
+           " nothing here.";
+        2: DecideAgainst();
+    }
+  JumpOn: switch (n) {
+        1: print "Jumping upon ", (the) x1, " ";
+           Tense("would achieve", "would have achieved");
+           " nothing here.";
+        2: DecideAgainst();
+    }
   JumpOver: switch (n) {
-        1:  CSubjectVerb(actor,true,false,"achieve",0,"achieve","achieved"); " nothing by this.";
+        1: print "Jumping over ", (the) x1, " ";
+           Tense("would achieve", "would have achieved");
+           " nothing here.";
         2:  DecideAgainst();
     }
   Kiss:     "Keep your mind on the game.";
