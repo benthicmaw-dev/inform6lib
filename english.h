@@ -637,10 +637,22 @@ Constant COLON__TX      = ": ";
         if (caps) print "Y"; else print "y";
         print "our"; return;
     }
-    if (caps) print "H"; else print "h";
-    if (obj has male) { print "is"; return; }
-    if (obj has female) { print "er"; return; }
-    if (caps) print "I"; else { print "i"; print "ts"; return; }
+    if (obj has pluralname) {
+      if (caps) print "T"; else print "t";
+      print "heir"; return;
+    }
+    if (obj has female) {
+      if (caps) print "H"; else print "h";
+      print "er"; return;
+    }
+    if (obj has male or animate) {
+      if (obj hasnt neuter) {
+        if (caps) print "H"; else print "h";
+        print "is"; return;
+      }
+    }
+    if (caps) print "I"; else { print "i"; }
+    print "ts"; return;
 ];
 
 [ PossessiveCaps obj;
