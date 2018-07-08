@@ -582,10 +582,10 @@ Constant COLON__TX      = ": ";
 [ CSubjectWill obj reportage nocaps;
     if (obj == player) {
         if (player provides narrative_voice) switch (player.narrative_voice) {
-          1:  Tense("I'll", "I would've"); return;
+          1:  Tense("I'll", "I would"); return;
           2:  ! Do nothing.
           3:  CDefart(player);
-              Tense(" will", " would've"); return;
+              Tense(" will", " would"); return;
           default: RunTimeError(16, player.narrative_voice);
         }
         if (nocaps) Tense("you'll", "you'd");
@@ -917,7 +917,7 @@ Constant COLON__TX      = ": ";
     }
   Go: switch (n) {
         1:  CSubjectWill(actor,true);
-            Tense(" have", " had");
+            Tense(" have", " have had");
                 " to get ", (nop) SupportObj(x1,"off","out of"), " ", (the) x1, " first.";
         2:  CSubjectCant(actor,true); " go that way.";
         3:  CSubjectIs  (actor,true); " unable to climb ", (the) x1, ".";
@@ -934,7 +934,7 @@ Constant COLON__TX      = ": ";
         2:  CSubjectCant(x1,true); " contain things.";
         3:  CSubjectIs  (x1,true); " closed.";
         4:  CSubjectWill(actor,true);
-            Tense(" need", " needed");
+            Tense(" need", " have needed");
             " to take ", (ItOrThem) x1, " off first.";
         5:  CSubjectCant(actor,true); " put something inside itself.";
         6:  "(first taking ", (ItOrThem) x1, " off)";
