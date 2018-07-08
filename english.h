@@ -892,9 +892,9 @@ Constant COLON__TX      = ": ";
         1:  print "There ";
             Tense("isn't", "wasn't");
             " anything obvious with which to fill ", (the) x1, ".";
-        2:  print "Filling ", (the) x1, " from ", (the) x2;
-            Tense(" doesn't", " didn't");
-            " make sense.";
+        2:  print "Filling ", (the) x1, " from ", (the) x2, " wouldn't ";
+            Tense("make", "have made");
+            " sense.";
     }
   FullScore: switch (n) {
         1:  if (deadflag) print "The score was "; else print "The score is ";
@@ -1221,9 +1221,9 @@ Constant COLON__TX      = ": ";
     }
 ! Push: see Pull
   PushDir: switch (n) {
-        1:  print "That really ";
-            Tense("wouldn't", "didn't");
-            " serve any purpose.";
+        1:  print "That really wouldn't ";
+            Tense("serve", "have served");
+            " any purpose.";
         2:  print "That's ";
             Tense("not", "wasn't");
             " a direction.";
@@ -1408,9 +1408,9 @@ Constant COLON__TX      = ": ";
   Touch: switch (n) {
         1:  DecideAgainst();
         2:  CSubjectVerb(actor,true,false,"feel",0,"feels","felt"); " nothing unexpected.";
-        3:  print "That really ";
-            Tense("wouldn't", "didn't");
-            " serve any purpose.";
+        3:  print "That really wouldn't ";
+            Tense("serve", "have served");
+            " any purpose.";
     }
 ! Turn: see Pull.
   Unlock:  switch (n) {
