@@ -2660,6 +2660,7 @@ Constant ID_BIT        $2000;       ! Print object id after each entry
 
 [ ThrowAtSub;
     if (ObjectIsUntouchable(noun)) return;
+    if (second == nothing) return L__M(##ThrowAt, 1, noun);
     if (second > 1) {
         action = ##ThrownAt;
         if (RunRoutines(second, before)) { action = ##ThrowAt; rtrue; }
