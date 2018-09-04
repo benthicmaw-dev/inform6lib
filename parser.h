@@ -60,11 +60,11 @@ System_file;
 ! ------------------------------------------------------------------------------
 
 #Ifndef VN_1633;
-Message fatalerror "*** Library 6.12.2 needs Inform v6.33 or later to work ***";
+Message fatalerror "*** Library 6.12.3 needs Inform v6.33 or later to work ***";
 #Endif; ! VN_
 
 Constant LibSerial       "180611";
-Constant LibRelease      "6.12.2";
+Constant LibRelease      "6.12.3pre";
 Constant LIBRARY_VERSION  612;
 Constant Grammar__Version 2;
 
