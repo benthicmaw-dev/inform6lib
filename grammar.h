@@ -242,7 +242,7 @@ Verb 'drop' 'discard'
     * multiexcept 'on'/'onto' noun              -> PutOn;
 
 Verb 'throw'
-    * held					-> ThrowAt
+    * noun					-> ThrowAt
     * held 'at'/'against'/'on'/'onto' noun      -> ThrowAt;
 
 Verb 'eat'
