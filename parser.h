@@ -6419,7 +6419,7 @@ Object  InformLibrary "(Inform Library)"
 #Endif; ! TARGET_ZCODE
 
 #Ifndef DrawStatusLine;
-[ DrawStatusLine width posa posb;
+[ DrawStatusLine width posa posb posc;
     #Ifdef TARGET_GLULX;
     ! If we have no status window, we must not try to redraw it.
     if (gg_statuswin == 0)
@@ -6434,7 +6434,9 @@ Object  InformLibrary "(Inform Library)"
     MoveCursor(1, 1);
 
     width = ScreenWidth();
-    posa = width-26; posb = width-13;
+    posa = width-26;
+    posb = width-13;
+    posc = width-5;
     spaces width;
 
     MoveCursor(1, 2);
@@ -6463,12 +6465,22 @@ Object  InformLibrary "(Inform Library)"
             MoveCursor(1, posb);
             print (string) MOVES__TX, sline2;
         }
-        #Ifndef NO_SCORE;
-        if (width > 53 && width <= 66) {
-            MoveCursor(1, posb);
-            print sline1, "/", sline2;
-        }
-        #Endif;
+	if (width > 53 && width <= 66) {
+	    MoveCursor(1, posb);
+	    #Ifdef NO_SCORE;
+	    print (string) MOVES__TX, sline2;
+	    #Ifnot;
+	    print sline1, "/", sline2;
+	    #Endif;
+	}
+	if (width < 53) {
+	   MoveCursor(1, posc);
+	   #Ifdef NO_SCORE;
+	   print (string) MOVES_S__TX, sline2;
+	   #Ifnot;
+	   print sline1, "/", sline2;
+	   #Endif;
+	}
     }
 
     MainWindow(); ! set_window
