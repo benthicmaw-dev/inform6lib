@@ -6619,10 +6619,8 @@ Object  InformLibrary "(Inform Library)"
     gg_scriptstr = 0;
     gg_savestr = 0;
     gg_statuswin_cursize = 0;
-    #Ifdef DEBUG;
     gg_commandstr = 0;
     gg_command_reading = false;
-    #Endif; ! DEBUG
     ! Also tell the game to clear its object references.
     if (IdentifyGlkObject(0) == false) LibraryExtensions.RunWhile(ext_identifyglkobject, 0, 0);
 
@@ -6631,12 +6629,10 @@ Object  InformLibrary "(Inform Library)"
         switch (gg_arguments-->0) {
             GG_SAVESTR_ROCK: gg_savestr = id;
             GG_SCRIPTSTR_ROCK: gg_scriptstr = id;
-            #Ifdef DEBUG;
             GG_COMMANDWSTR_ROCK: gg_commandstr = id;
                                  gg_command_reading = false;
             GG_COMMANDRSTR_ROCK: gg_commandstr = id;
                                  gg_command_reading = true;
-            #Endif; ! DEBUG
             default: if (IdentifyGlkObject(1, 1, id, gg_arguments-->0) == false)
                          LibraryExtensions.RunWhile(ext_identifyglkobject, false, 1, 1, id, gg_arguments-->0);
         }
