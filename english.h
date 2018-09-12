@@ -950,7 +950,7 @@ Constant COLON__TX      = ": ";
             " to take ", (ItOrThem) x1, " off first.";
         5:  CSubjectCant(actor,true); " put something inside itself.";
         6:  "(first taking ", (ItOrThem) x1, " off)";
-        7:  print "There ";
+        7:  print "There";
             Tense(" is", " was");
             " no more room in ", (the) x1, ".";
         8:  "Done.";
