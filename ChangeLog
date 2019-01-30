@@ -289,7 +289,7 @@ Issue L61121
 add_to_scope of parentless object causes error.
 Problem: Consider an object which has no parent, and is brought into
 scope by an add_to_scope property. An attempt to take that object causes
-error messag
+error message
   [** Programming error: tried to test "has" or "hasnt" of nothing **]
   [** Programming error: tried to test "has" or "hasnt" of nothing **]
   That's hardly portable.
@@ -329,7 +329,7 @@ Issue L61125
 match_list and match_scores over-run.
 Problem: The problem is that match_list-->number_matched is being
 accessed, when match_list has length only number_matched (that is,
-entries 0..number_matched-1). In particular this causes errors when th
+entries 0..number_matched-1). In particular this causes errors when the
 match_list is of full length (64 entries). Similarly for match_scores.
 Status: Fixed
 
@@ -354,7 +354,7 @@ eventually succeeds might not even need disambiguation (thanks to
 different token type or ChooseObjects).
 This also fixes L61120
 Status: Fixed
-I have also applied a fix submitted by Nathan Schwartzman at
+Notes: I have also applied a fix submitted by Nathan Schwartzman at
 http://inform7.com/mantis/view.php?id=636.
 
 Issue L61128
@@ -362,6 +362,47 @@ OOPS sometimes changes wrong word.
 Problem: The OOPS command doesn't necessarily change the faulty word. In
 the examples below, 'ZZZ' should be corrected to 'RUBY'. This happens in
 the first example, but not the second.
+  You can see a pearl ring and a ruby ring here.
+
+  >TRACE 2
+  [Parser tracing set to level 2.]
+
+  >EXAMINE ZZZ RING
+  [ "examine" examine / "zzz" ? / "ring" ring ]
+  [Parsing for the verb 'examine' (1 lines)]
+
+  [line 0 * noun -> Examine]
+   [line 0 token 1 word 2 : noun]
+  You can't see any such thing.
+
+  >OOPS RUBY
+  [ "examine" examine / "ruby" ruby / "ring" ring ]
+  [Parsing for the verb 'examine' (1 lines)]
+
+  [line 0 * noun -> Examine]
+   [line 0 token 1 word 2 : noun]
+   [line 0 token 2 word 4 : END]
+  [Line successfully parsed]
+  You see nothing special about the ruby ring.
+
+  >EXAMINE RING ZZZ
+  [ "examine" examine / "ring" ring / "zzz" ? ]
+  [Parsing for the verb 'examine' (1 lines)]
+
+  [line 0 * noun -> Examine]
+   [line 0 token 1 word 2 : noun]
+  You can't see any such thing.
+
+  >OOPS RUBY
+  [ "examine" examine / "ruby" ruby / "zzz" ? ]
+  [Parsing for the verb 'examine' (1 lines)]
+
+  [line 0 * noun -> Examine]
+   [line 0 token 1 word 2 : noun]
+   [line 0 token 2 word 3 : END]
+  I only understood you as far as wanting to examine the ruby ring.
+
+  >
 Status: Fixed
 
 Issue L61129
