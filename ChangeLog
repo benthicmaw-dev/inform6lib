@@ -157,7 +157,7 @@ Problem: When I compile Greystone with 6.30 and 6/11 my statusline time;
 statement is seemingly ignored; the game runs by moves and not a clock.
 If I revert back to 6.21 and 6/10 the statusline is indeed a clock again
 and not a move counter.
-Status: Unable to reprodu
+Status: Unable to reproduce
 
 Issue L61104
 ListMaker doesn't support 'serial' commas.
