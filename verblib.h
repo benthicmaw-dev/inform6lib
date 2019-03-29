@@ -1970,15 +1970,10 @@ Constant ID_BIT        $2000;       ! Print object id after each entry
 ! ----------------------------------------------------------------------------
 
 [ EnterSub ancestor j ks;
-    if (noun in compass) <<Go noun, actor>>;
-
-    if (noun has door) {
+    if (noun has door || noun in compass) {
 	if (verb_word == 'stand' or 'sit' or 'lie')
-	    return L__M(##Go, 2);
-	if (noun has open)
-	    <<Go noun, actor>>;
-	else
-	    return L__M(##Go, 2);
+	    return L__M(##Enter, 2, noun, verb_word);
+	<<Go noun, actor>>;
     }
 
     if (actor in noun) return L__M(##Enter, 1, noun);
@@ -2077,11 +2072,21 @@ Constant ID_BIT        $2000;       ! Print object id after each entry
         }
     }
 
-    thedir = noun.door_dir;
-    if (metaclass(thedir) == Routine) thedir = RunRoutines(noun, door_dir);
+    if (noun.door_dir ~= nothing) {
+	thedir = noun.door_dir;
+	if (metaclass(thedir) == Routine)
+	    thedir = RunRoutines(noun, door_dir);
+	next_loc = i.thedir;
+    } else
+	next_loc = noun;
 
-    next_loc = i.thedir; k = metaclass(next_loc);
-    if (k == String) { print (string) next_loc; new_line; rfalse; }
+    k = metaclass(next_loc);
+
+    if (k == String) {
+	print (string) next_loc;
+	new_line; rfalse;
+    }
+
     if (k == Routine) {
         next_loc = RunRoutines(i, thedir);
         if (next_loc == 1) rtrue;
@@ -2092,6 +2097,7 @@ Constant ID_BIT        $2000;       ! Print object id after each entry
         else                              L__M(##Go, 2);
         rfalse;
     }
+
     if (next_loc has door) {
         if (next_loc has concealed) return L__M(##Go, 2);
         if (next_loc hasnt open && ImplicitOpen(next_loc)) {
