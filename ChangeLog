@@ -14,6 +14,8 @@ This is a maintenance release focusing almost entirely on bug fixes.
 Bugs fixed
 ----------
 
+* Fixed a problem that prevented ENTER DOOR from being accepted.
+
 * Fixed assorted grammatical inconsistencies.
 
 * Fixed a problem with THROW BALL resulting in trying to throw the ball at
