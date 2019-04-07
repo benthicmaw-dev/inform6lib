@@ -805,7 +805,7 @@ Class  SelfClass
         each_turn NULL,
         time_out NULL,
         describe NULL,
-        article "the",
+        article THE__TX,
         add_to_scope 0,
         capacity 100,
         parse_name 0,

@@ -363,6 +363,7 @@ Constant DARKNESS__TX   = "Darkness";
 
 Constant THOSET__TX     = "those things";
 Constant THAT__TX       = "that";
+Constant THE__TX        = "the";
 Constant OR__TX         = " or ";
 Constant NOTHING__TX    = "nothing";
 Constant IS__TX         = " is";
