@@ -380,6 +380,8 @@ Constant WHICH__TX      = "which ";
 Constant COMMA__TX      = ", ";
 Constant COLON__TX      = ": ";
 
+Constant LIBERROR__TX   = "Library error ";
+
 ! ----------------------------------------------------------------------------
 ! FYI on nominative pronouns versus accusative pronouns...
 ! Consider the sentence "She hit him.".
@@ -1287,6 +1289,36 @@ Constant COLON__TX      = ": ";
             " nothing by this.";
         2:  DecideAgainst();
     }
+  RunTimeError: print "** ";
+	switch (n) {
+	1:  print "Preposition not found (this should not occur)";
+	2:  print "Property value not routine or string: ~", (property) x2,
+		"~ of ~", (name) x1, "~ (", x1, ")";
+	3:  print "Entry in property list not routine or string: ~",
+		(property) x2, "~ list of ~", (name) x1, "~ (", x1, ")";
+	4:  print "Too many timers/daemons are active simultaneously.
+		The limit is the library constant MAX_TIMERS
+		(currently ", MAX_TIMERS, ") and should be increased";
+	5:  print "Object ~", (name) x1, "~ has no ~", (property) x2,
+		"~ property";
+	7:  print "The object ~", (name) x1, "~ can only be used as a player
+		object if it has the ~number~ property";
+	8:  print "Attempt to take random entry from an empty table array";
+	9:  print x1, " is not a valid direction property number";
+	10: print "The player-object is outside the object tree";
+	11: print "The room ~", (name) x1, "~ has no ~", (property) x2,
+		"~ property";
+	12: print "Tried to set a non-existent pronoun using SetPronoun";
+	13: print "A 'topic' token can only be followed by a preposition";
+	14: print "Overflowed buffer limit of ", x1,
+		" using '@@64output_stream 3' ", (string) x2;
+	15: print "LoopWithinObject broken because the object ",
+		(name) x1, " was moved while the loop passed through it.";
+	16: print "Attempt to use illegal narrative_voice of ", x1, ".";
+	default:
+	    print "(unexplained)";
+    }
+    print " **";
   Save: switch (n) {
         1:  "Save failed.";
         2:  "Ok.";

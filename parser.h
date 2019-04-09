@@ -154,6 +154,7 @@ Fake_Action TheSame;
 Fake_Action PluralFound;
 Fake_Action ListMiscellany;
 Fake_Action Miscellany;
+Fake_Action RunTimeError;
 Fake_Action Prompt;
 Fake_Action NotUnderstood;
 Fake_Action Going;
