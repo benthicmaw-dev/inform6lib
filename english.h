@@ -381,6 +381,16 @@ Constant COMMA__TX      = ", ";
 Constant COLON__TX      = ": ";
 
 Constant LIBERROR__TX   = "Library error ";
+Constant TERP__TX       = "Interpreter ";
+Constant VER__TX        = "Version ";
+Constant STDTERP__TX    = "Standard interpreter ";
+Constant TERPVER__TX	= "Interpreter version ";
+Constant LIBSER__TX	= "Library Serial Number ";
+Constant VM__TX		= "VM ";
+Constant RELEASE__TX    = "Release ";
+Constant SERNUM__TX     = "Serial number ";
+Constant INFORMV__TX    = "Inform v";
+Constant LIBRARYV__TX   = " Library v";
 
 ! ----------------------------------------------------------------------------
 ! FYI on nominative pronouns versus accusative pronouns...

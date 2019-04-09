@@ -72,17 +72,17 @@ Object LibraryMessages;
     }
     if (Headline) print (string) Headline;
     #Ifdef TARGET_ZCODE;
-    print "Release ", (HDR_GAMERELEASE-->0) & $03ff, " / Serial number ";
+    print (string) RELEASE__TX, (HDR_GAMERELEASE-->0) & $03ff, " / ", (string) SERNUM__TX;
     for (i=0 : i<6 : i++) print (char) HDR_GAMESERIAL->i;
     #Ifnot; ! TARGET_GLULX;
-    print "Release ";
+    print (string) RELEASE__TX;
     @aloads ROM_GAMERELEASE 0 i;
     print i;
-    print " / Serial number ";
+    print " / ", (string) SERNUM__TX;
     for (i=0 : i<6 : i++) print (char) ROM_GAMESERIAL->i;
     #Endif; ! TARGET_
-    print " / Inform v"; inversion;
-    print " Library v", (string) LibRelease, " ";
+    print " / ", (string) INFORMV__TX; inversion;
+    print (string) LIBRARYV__TX, (string) LibRelease, " ";
     #Ifdef STRICT_MODE;
     print "S";
     #Endif; ! STRICT_MODE
@@ -106,7 +106,7 @@ Object LibraryMessages;
     #Ifdef TARGET_ZCODE;
     ix = 0; ! shut up compiler warning
     if (standard_interpreter > 0) {
-        print "Standard interpreter ", standard_interpreter/256, ".", standard_interpreter%256,
+        print (string) STDTERP__TX, standard_interpreter/256, ".", standard_interpreter%256,
             " (", HDR_TERPNUMBER->0;
         #Iftrue (#version_number == 6);
         print (char) '.', HDR_TERPVERSION->0;
@@ -116,7 +116,7 @@ Object LibraryMessages;
         print ") / ";
         }
     else {
-        print "Interpreter ", HDR_TERPNUMBER->0, " Version ";
+        print (string) TERP__TX, HDR_TERPNUMBER->0, (string) VER__TX;
         #Iftrue (#version_number == 6);
         print HDR_TERPVERSION->0;
         #Ifnot;
@@ -127,12 +127,12 @@ Object LibraryMessages;
 
     #Ifnot; ! TARGET_GLULX;
     @gestalt 1 0 ix;
-    print "Interpreter version ", ix / $10000, ".", (ix & $FF00) / $100,
+    print (string) TERPVER__TX, ix / $10000, ".", (ix & $FF00) / $100,
       ".", ix & $FF, " / ";
     @gestalt 0 0 ix;
-    print "VM ", ix / $10000, ".", (ix & $FF00) / $100, ".", ix & $FF, " / ";
+    print (string) VM__TX, ix / $10000, ".", (ix & $FF00) / $100, ".", ix & $FF, " / ";
     #Endif; ! TARGET_;
-    print "Library serial number ", (string) LibSerial, "^";
+    print (string) LIBSER__TX, (string) LibSerial, "^";
     #Ifdef LanguageVersion;
     print (string) LanguageVersion, "^";
     #Endif; ! LanguageVersion
