@@ -2855,7 +2855,7 @@ Constant UNLIT_BIT  =  32;
                 wn = desc_wn;
                 jump TryAgain2;
             }
-            if (etype ~=TOOFEW_PE && (multiflag || etype ~= MULTI_PE))
+            if ((etype ~=TOOFEW_PE && etype ~= VAGUE_PE) && (multiflag || etype ~= MULTI_PE))
                 etype = CantSee();
             jump FailToken;
         } ! Choose best error
