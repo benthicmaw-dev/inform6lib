@@ -795,7 +795,6 @@ Object  thedark "(darkness object)"
 
 ! If you want to use the third-person of the narrative voice, you will
 ! need to replace this selfobj with your own.
-
 Class  SelfClass
   with name ',a' ',b' ',c' ',d' ',e',
         short_name  YOURSELF__TX,
