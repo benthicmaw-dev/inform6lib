@@ -2834,7 +2834,7 @@ Constant UNLIT_BIT  =  32;
         #Endif; ! DEBUG
         l = NounDomain(actors_location, actor, token);
         if (l == REPARSE_CODE) return l;                  ! Reparse after Q&A
-        if (l ~= nothing && l ~= 1 && l notin actor && token == MULTIHELD_TOKEN or MULTIEXCEPT_TOKEN) {
+        if (metaclass(l) ~= Routine && l ~= nothing && l ~= 1 && l notin actor && token == MULTIHELD_TOKEN or MULTIEXCEPT_TOKEN) {
 	    if (ImplicitTake(l)) {
 		etype = NOTHELD_PE;
 		jump FailToken;
