@@ -484,7 +484,7 @@ Constant LIBRARYV__TX   = " Library v";
 
 [ nop x; x = x; ];      ! print rule to absorb unwanted return value
 
-[ SubjectNotPlayer obj reportage v2 v3 past;
+[ SubjectNotPlayer obj reportage nocaps v2 v3 past;
     if (past && player provides narrative_tense && player.narrative_tense == PAST_TENSE) {
         v2 = past;
         v3 = past;
@@ -503,8 +503,21 @@ Constant LIBRARYV__TX   = " Library v";
             else {print (the) obj, " ", (string) v3; return;}
     }
    else
-        if (obj has pluralname) { print (The) obj, " ", (string) v2; return;}
-        else                    { print (The) obj, " ", (string) v3; return;}
+        if (obj has pluralname) {
+	    if (nocaps)
+		print (the) obj;
+	    else
+		print (The) obj;
+	    print " ", (string) v2;
+	    return;
+	}
+        else {
+	    if (nocaps)
+		print (the) obj;
+	    else
+		print (The) obj;
+	    print " ", (string) v3; return;
+	}
 ];
 
 [ CSubjectVoice obj v1 v2 v3 past;
@@ -548,7 +561,7 @@ Constant LIBRARYV__TX   = " Library v";
         if (nocaps) { print "you ", (string) v2; return; }
 	print "You ", (string) v2; return;
     }
-    SubjectNotPlayer(obj, reportage, v2, v3);
+    SubjectNotPlayer(obj, reportage, nocaps, v2, v3);
 ];
 
 [ CSubjectIs obj reportage nocaps;
@@ -564,7 +577,7 @@ Constant LIBRARYV__TX   = " Library v";
         else Tense("You're", "You were");
         return;
     }
-    SubjectNotPlayer(obj, reportage, "are", "is", "was");
+    SubjectNotPlayer(obj, reportage, nocaps, "are", "is", "was");
 ];
 
 [ CSubjectIsnt obj reportage nocaps;
@@ -580,7 +593,7 @@ Constant LIBRARYV__TX   = " Library v";
         else Tense("You aren't", "You weren't");
 	return;
     }
-    SubjectNotPlayer(obj, reportage, "aren't", "isn't", "wasn't");
+    SubjectNotPlayer(obj, reportage, nocaps, "aren't", "isn't", "wasn't");
 ];
 
 [ CSubjectHas obj reportage nocaps;
@@ -596,7 +609,7 @@ Constant LIBRARYV__TX   = " Library v";
         else Tense("You've", "You'd");
         return;
     }
-    SubjectNotPlayer(obj, reportage, "have", "has", "had");
+    SubjectNotPlayer(obj, reportage, nocaps, "have", "has", "had");
 ];
 
 [ CSubjectWill obj reportage nocaps;
@@ -612,7 +625,7 @@ Constant LIBRARYV__TX   = " Library v";
         else Tense("You'll", "You'd");
         return;
     }
-    SubjectNotPlayer(obj, reportage, "will", "will", "would");
+    SubjectNotPlayer(obj, reportage, nocaps, "will", "will", "would");
 ];
 
 [ CSubjectCan obj reportage nocaps;
@@ -1287,7 +1300,7 @@ Constant LIBRARYV__TX   = " Library v";
   Remove: switch (n) {
         1:  CSubjectIs  (x1,true); " unfortunately closed.";
         2:  print "But ";
-            CSubjectIsnt(x1,true); " there now.";
+            CSubjectIsnt(x1,true,true); " there now.";
         3:  "Removed.";
     }
   Restart: switch (n) {
