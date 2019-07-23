@@ -1948,7 +1948,7 @@ Constant ID_BIT        $2000;       ! Print object id after each entry
 
 [ EnterSub ancestor j ks;
     if (noun has door || noun in compass) {
-	if (verb_word == 'stand' or 'sit' or 'lie')
+	if (verb_word == STAND__TX or SIT__TX or LIE__TX)
 	    return L__M(##Enter, 2, noun, verb_word);
 	<<Go noun, actor>>;
     }

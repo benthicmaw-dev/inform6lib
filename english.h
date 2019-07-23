@@ -380,6 +380,10 @@ Constant WHICH__TX      = "which ";
 Constant COMMA__TX      = ", ";
 Constant COLON__TX      = ": ";
 
+Constant STAND__TX	= "stand";
+Constant SIT__TX	= "sit";
+Constant LIE__TX	= "lie";
+
 Constant LIBERROR__TX   = "Library error ";
 Constant TERP__TX       = "Interpreter ";
 Constant VER__TX        = "Version ";
