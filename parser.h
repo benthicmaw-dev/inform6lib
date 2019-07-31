@@ -6908,7 +6908,7 @@ Array StorageForShortName -> WORDSIZE + SHORTNAMEBUF_LEN;
     PrintCapitalised(a, b, false, true, true);
 ];
 
-[ CapitRule str no_caps;
+[ Cap str no_caps;
     if (no_caps) print (string) str;
     else         PrintCapitalised(str,0,true);
 ];
@@ -6917,7 +6917,7 @@ Array StorageForShortName -> WORDSIZE + SHORTNAMEBUF_LEN;
     if (o provides articles) {
         artval=(o.&articles)-->(acode+short_name_case*LanguageCases);
         if (capitalise)
-            print (CapitRule) artval;
+            print (Cap) artval;
         else
             print (string) artval;
         if (pluralise) return;
@@ -6967,7 +6967,7 @@ Array StorageForShortName -> WORDSIZE + SHORTNAMEBUF_LEN;
     }
     #Endif; ! TARGET_
 
-    CapitRule (artform-->acode, ~~capitalise); ! print article
+    Cap (artform-->acode, ~~capitalise); ! print article
     if (pluralise) return;
     print (PSN__) o;
 ];
