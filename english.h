@@ -861,6 +861,7 @@ Constant LIBRARYV__TX   = " Library v";
         1:  CSubjectIsnt(actor,true); " wearing ", (ThatOrThose) x1, ".";
         2:  CSubjectVerb(actor,false,false,"take off",0,"takes off", "took off");
             " ", (the) x1, ".";
+        3:  "(first taking ", (the) x1, " off)";
     }
   Drink:    print "There";
             Tense("'s", " was");
@@ -870,8 +871,7 @@ Constant LIBRARYV__TX   = " Library v";
         2:  CSubjectVerb(actor, false, false, "haven't got", 0, "hasn't got",
                          "didn't have");
             " ", (the) x1, ".";
-        3:  "(first taking ", (the) x1, " off)";
-        4:  "Dropped.";
+        3:  "Dropped.";
     }
   Eat: switch (n) {
         1:  CSubjectIs(x1,true); " plainly inedible.";

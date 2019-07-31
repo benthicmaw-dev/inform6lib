@@ -1752,7 +1752,7 @@ Constant ID_BIT        $2000;       ! Print object id after each entry
     if (res >= 2) rtrue;
     ks = keep_silent; keep_silent = 1; <Disrobe obj, actor>; keep_silent = ks;
     if (obj has worn && obj in actor) rtrue;
-    if (res == 0 && ~~keep_silent) L__M(##Drop, 3, obj);
+    if (res == 0 && ~~keep_silent) L__M(##Disrobe, 3, obj);
     rfalse;
 ];
 
@@ -1791,7 +1791,7 @@ Constant ID_BIT        $2000;       ! Print object id after each entry
     if (noun has worn && ImplicitDisrobe(noun)) return;
     move noun to parent(actor);
     if (AfterRoutines() || keep_silent) return;
-    L__M(##Drop, 4, noun);
+    L__M(##Drop, 3, noun);
 ];
 
 [ PutOnSub ancestor;
