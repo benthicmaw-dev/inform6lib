@@ -30,10 +30,10 @@ Fake_Action NotUnderstood;
 !message "Hello!";
 
 IFDEF USE_MODULES;
-Link "ParserM";
+Link "parserm";
 IFNOT;
 !message "And here!";
-Include "ParserM";
+Include "parserm";
 ENDIF;
 
 !message "Goodbye!";
