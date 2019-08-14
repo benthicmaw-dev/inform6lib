@@ -5312,6 +5312,10 @@ Object  InformLibrary "(Inform Library)"
 ];
 
 [ GameEpilogue;
+    if (score ~= last_score) {
+	if (notify_mode == 1) NotifyTheScore();
+	last_score = score;
+    }
     print "^^    ";
     #Ifdef TARGET_ZCODE;
     #IfV5; style bold; #Endif; ! V5
